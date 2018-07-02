@@ -38,10 +38,10 @@
 </template>
 
 <script>
-  import axios from "axios";
+  import axios from 'axios';
   
   export default {
-    name: "OneAuthenHome",
+    name: 'OneAuthenHome',
     props: {
       msg: String,
       info: Object
@@ -66,13 +66,13 @@
     },
     methods: {
       onSubmit(evt) {
-        evt.preventDefault();
-        this.load = true;
-        // alert(JSON.stringify(this.form));
-        axios.post("https://testoneid.inet.co.th/api/oauth/getpwd", {
-            grant_type: "password",
-            client_id: "49",
-            client_secret: "a4sUAx8EH0xpqXlgc2dWVFePDiO2t7MGXkfez4vC",
+        evt.preventDefault()
+        this.load = true
+
+        axios.post('https://testoneid.inet.co.th/api/oauth/getpwd', {
+            grant_type: 'password',
+            client_id: '49',
+            client_secret: 'a4sUAx8EH0xpqXlgc2dWVFePDiO2t7MGXkfez4vC',
             username: this.form.user_name,
             password: this.form.user_password
           })
@@ -82,20 +82,24 @@
             console.log(response.data)
             console.log(this.access_token_in)
   
-            axios.get("https://testoneid.inet.co.th/api/account", {
+            axios.get('https://testoneid.inet.co.th/api/account', {
               headers: {
-                'Authorization': "Bearer " + this.access_token_in,
+                'Authorization': 'Bearer ' + this.access_token_in,
                 'Content-Type': 'application/x-www-form-urlencoded'
               }
             }).then(res => {
+              const user = []
               this.user_data = res.data
+              this.user_data.user_id = this.form.user_name
               this.user_data.expires_in = expires_in
-              localStorage.setItem("user", JSON.stringify(this.user_data))
+              localStorage.setItem('user', JSON.stringify(this.user_data))
               this.$store.state.isLogin = true
               this.$store.state.user = user
               this.load = false
+              this.$router.push('/upload')
               console.log(this.user_data)
             }).catch(error => {
+              this.load = false
               console.log(error)
             })
           })

@@ -49,7 +49,6 @@ export default {
   font-size: 40px;
   font-weight: bold;
 }
-
 .card-box {
   background: #fff;
   width: 300px;
@@ -65,14 +64,12 @@ export default {
   border: 0px solid #000000;
   transition: all 1s;
 }
-
 .card-box:hover {
   transition: all 1s;
   -webkit-box-shadow: 0px 10px 21px -1px rgba(0, 0, 0, 0.3);
   -moz-box-shadow: 0px 10px 21px -1px rgba(0, 0, 0, 0.3);
   box-shadow: 0px 10px 21px -1px rgba(0, 0, 0, 0.3);
 }
-
 .upload-btn {
   width: 100%;
   border-radius: 15px 15px 15px 15px;
@@ -80,19 +77,21 @@ export default {
   -webkit-border-radius: 15px 15px 15px 15px;
   margin-top: 30px;
 }
-
 .custom-file-label {
     overflow: hidden !important;
 }
-
 .logOut {
   color: red !important;
   margin-left: 8px;
   cursor: pointer;
   font-weight: bold;
+  transition: all 0.5s;
 }
 .logOut:hover {
   color: #D60103 !important;
   font-weight: bolder;
+  border-right: 5px solid #D60103;
+  padding-right: 5px;
+  transition: border-right 0.5s;
 }
 </style>

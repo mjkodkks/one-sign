@@ -6,7 +6,7 @@
     <div class="row justify-content-center">
       <div class="card-box">
         <div>
-          <b-form-file v-model="file" :state="Boolean(file)" placeholder="Choose a file..."></b-form-file>
+          <b-form-file v-model="file" :state="Boolean(file)" accept=".pdf" placeholder="Choose a file..."></b-form-file>
           <div class="mt-3">Selected file: {{file && file.name}}</div>
         </div>
         <b-button type="submit" class="upload-btn">Upload</b-button>

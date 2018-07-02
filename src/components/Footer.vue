@@ -38,59 +38,55 @@
 </template>
 
 <script>
-  export default {
-    name: "Footer",
-  }
+export default {
+  name: "Footer"
+};
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-  .footer {
-    width: 100%;
-    padding-left: 5%;
-    padding-right: 5%;
-    padding-top: 2%;
-    padding-bottom: 2%;
-    background: #d60103;
-    display: block;
-    position: absolute;
-    bottom: 0;
-    color: #fff;
-    font-size: 14px;
-  }
-  
-  .row {
-    padding: 0 0 0 0;
-  }
-  
-  .information {
-    display: block;
-  }
-  
-  .information>div>ul {
-    list-style: none;
-    padding: 0;
-    display: inline-block;
-  }
-  
-  .information>div>ul:nth-child(2) {
-    list-style: none;
-    padding-left: 20px;
-    font-weight: bolder;
-  }
-  
-  .information>div>ul:nth-child(3) {
-    list-style: none;
-    padding-left: 20px;
-  }
-  
-  .address {
-    text-align: right;
-  }
+.footer {
+  width: 100%;
+  padding-left: 5%;
+  padding-right: 5%;
+  padding-top: 2%;
+  padding-bottom: 2%;
+  background: #d60103;
+  display: block;
+  position: absolute;
+  bottom: 0;
+  color: #fff;
+  font-size: 14px;
+}
+.row {
+  padding: 0 0 0 0;
+}
+.information {
+  display: block;
+}
+.information > div > ul {
+  list-style: none;
+  padding: 0;
+  display: inline-block;
+}
+.information > div > ul:nth-child(2) {
+  list-style: none;
+  padding-left: 20px;
+  font-weight: bolder;
+}
+.information > div > ul:nth-child(3) {
+  list-style: none;
+  padding-left: 20px;
+}
+.address {
+  text-align: right;
+}
 
-  @media screen and (max-height: 700px ) {
-    .footer {
+@media screen and (max-height: 667px) and (max-width: 450px) {
+  .footer {
     position: relative;
-    }
+    margin-top: 30px;
   }
+}
+
 </style>

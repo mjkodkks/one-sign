@@ -29,7 +29,7 @@
       </b-form>
     </div>
     <div class="row justify-content-center" style=" font-size: 11px;
-      margin-top: 25px;">
+        margin-top: 25px;">
       คุณยังไม่มีบัญชี One Platform ใช่หรือไม่?
     </div>
     <div class="row justify-content-center">
@@ -39,90 +39,89 @@
 </template>
 
 <script>
-import axios from "axios";
+import axios from 'axios'
 
 export default {
-  name: "OneAuthenHome",
+  name: 'OneAuthenHome',
   props: {
     msg: String,
     info: Object
   },
-  data() {
+  data () {
     return {
       form: {
-        user_name: "",
-        user_password: ""
+        user_name: '',
+        user_password: ''
       },
       access_token_in: String,
       user_data: Object,
-      load: "",
+      load: '',
       dismissSecs: 5,
       dismissCountDown: 0,
       showDismissibleAlert: false,
-      animate_alert: "animated bounce"
-    };
+      animate_alert: 'animated bounce'
+    }
   },
-  mounted() {
-    console.log(this.$store.state.isLogin);
+  mounted () {
+    console.log(this.$store.state.isLogin)
   },
   methods: {
-    onSubmit(evt) {
-      evt.preventDefault();
-      this.load = true;
+    onSubmit (evt) {
+      evt.preventDefault()
+      this.load = true
 
       axios
-        .post("https://testoneid.inet.co.th/api/oauth/getpwd", {
-          grant_type: "password",
-          client_id: "49",
-          client_secret: "a4sUAx8EH0xpqXlgc2dWVFePDiO2t7MGXkfez4vC",
+        .post('https://testoneid.inet.co.th/api/oauth/getpwd', {
+          grant_type: 'password',
+          client_id: '49',
+          client_secret: 'a4sUAx8EH0xpqXlgc2dWVFePDiO2t7MGXkfez4vC',
           username: this.form.user_name,
           password: this.form.user_password
         })
         .then(response => {
-          this.access_token_in = response.data.access_token;
-          const expires_in =
-            new Date().getTime() + response.data.expires_in * 1000;
-          console.log(response.data);
-          console.log(this.access_token_in);
+          this.access_token_in = response.data.access_token
+          const expires_in = new Date().getTime() + response.data.expires_in * 1000
+          console.log(response.data)
+          console.log(this.access_token_in)
 
           axios
-            .get("https://testoneid.inet.co.th/api/account", {
+            .get('https://testoneid.inet.co.th/api/account', {
               headers: {
-                Authorization: "Bearer " + this.access_token_in,
-                "Content-Type": "application/x-www-form-urlencoded"
+                Authorization: 'Bearer ' + this.access_token_in,
+                'Content-Type': 'application/x-www-form-urlencoded'
               }
             })
             .then(res => {
-              const user = [];
-              this.user_data = res.data;
-              this.user_data.user_id = this.form.user_name;
-              this.user_data.expires_in = expires_in;
-              localStorage.setItem("user", JSON.stringify(this.user_data));
-              this.$store.state.isLogin = true;
-              this.$store.state.user = user;
-              this.load = false;
-              this.$router.push("/upload");
-              console.log(this.user_data);
+              const user = []
+              this.user_data = res.data
+              this.user_data.user_id = this.form.user_name
+              this.user_data.expires_in = expires_in
+              localStorage.setItem('user', JSON.stringify(this.user_data))
+              this.$store.state.isLogin = true
+              this.$store.state.user = user
+              this.load = false
+              this.$router.push('/upload')
+              console.log(this.user_data)
             })
             .catch(error => {
-              this.load = false;
-              console.log(error);
-            });
+              this.load = false
+              console.log(error)
+            })
         })
         .catch(error => {
-          console.log(error);
-          this.load = false;
-          this.showAlert();
-        });
+          console.log(error)
+          this.load = false
+          this.showAlert()
+        })
     },
-    countDownChanged(dismissCountDown) {
-      this.dismissCountDown = dismissCountDown;
+    countDownChanged (dismissCountDown) {
+      this.dismissCountDown = dismissCountDown
     },
-    showAlert() {
-      this.dismissCountDown = this.dismissSecs;
+    showAlert () {
+      this.dismissCountDown = this.dismissSecs
     }
   }
-};
+}
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->

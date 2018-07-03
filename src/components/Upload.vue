@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <div class="row justify-content-center" style="margin-top: 30px;">
-      <span>ยินดีต้อนรับ คุณ {{user_id}} ,</span><a class="logOut" @click="logOut()" >LogOut</a>
+      <span>ยินดีต้อนรับ คุณ <span class="login-user">{{user_id}}</span> ,</span><a class="logOut" @click="logOut()" >LogOut</a>
       </div>
     <div class="row justify-content-center">
       <div class="card-box">
@@ -45,10 +45,6 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.hello-again {
-  font-size: 40px;
-  font-weight: bold;
-}
 .card-box {
   background: #fff;
   width: 300px;
@@ -77,9 +73,6 @@ export default {
   -webkit-border-radius: 15px 15px 15px 15px;
   margin-top: 30px;
 }
-.custom-file-label {
-    overflow: hidden !important;
-}
 .logOut {
   color: red !important;
   margin-left: 8px;
@@ -93,5 +86,16 @@ export default {
   border-right: 5px solid #D60103;
   padding-right: 5px;
   transition: border-right 0.5s;
+}
+.login-user {
+  font-weight: bold;
+}
+</style>
+<style lang="css">
+ .custom-file-label {
+    overflow: hidden !important;
+}
+label {
+    overflow: hidden !important;
 }
 </style>

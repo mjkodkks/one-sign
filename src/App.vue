@@ -3,6 +3,7 @@
     <img class="logo animated fadeIn" src="./assets/logo_OneAuthen_500px.png" width="200px">
     <router-view/>
     <Footer />
+    <vue-progress-bar></vue-progress-bar>
   </div>
 </template>
 

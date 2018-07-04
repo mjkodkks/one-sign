@@ -34,64 +34,65 @@
 </template>
 
 <script>
-  export default {
-    name: "Footer"
-  };
+export default {
+  name: "Footer",
+};
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.footer {
+  width: 100%;
+  padding-left: 5%;
+  padding-right: 5%;
+  padding-top: 1%;
+  padding-bottom: 1%;
+  background: #d60103;
+  display: block;
+  position: absolute;
+  bottom: 0;
+  color: #fff;
+  font-size: 13px;
+}
+
+.row {
+  padding: 0 0 0 0;
+}
+
+.information {
+  display: block;
+}
+
+.information > div > ul {
+  list-style: none;
+  padding: 0;
+  display: inline-block;
+}
+
+.information > div > ul:nth-child(2) {
+  list-style: none;
+  padding-left: 20px;
+  font-weight: bolder;
+}
+
+.information > div > ul:nth-child(3) {
+  list-style: none;
+  padding-left: 20px;
+}
+
+.address {
+  text-align: right;
+}
+
+.custom-file-label {
+  overflow: hidden;
+}
+
+@media screen and (max-height: 736px) and (max-width: 450px) {
   .footer {
-    width: 100%;
-    padding-left: 5%;
-    padding-right: 5%;
-    padding-top: 1%;
-    padding-bottom: 1%;
-    background: #d60103;
-    display: block;
-    position: absolute;
-    bottom: 0;
-    color: #fff;
-    font-size: 14px;
+    position: relative;
+    margin-top: 30px;
+    font-size: 10px;
   }
-  
-  .row {
-    padding: 0 0 0 0;
-  }
-  
-  .information {
-    display: block;
-  }
-  
-  .information>div>ul {
-    list-style: none;
-    padding: 0;
-    display: inline-block;
-  }
-  
-  .information>div>ul:nth-child(2) {
-    list-style: none;
-    padding-left: 20px;
-    font-weight: bolder;
-  }
-  
-  .information>div>ul:nth-child(3) {
-    list-style: none;
-    padding-left: 20px;
-  }
-  
-  .address {
-    text-align: right;
-  }
-  
-  .custom-file-label {
-    overflow: hidden;
-  }
-  
-  @media screen and (max-height: 736px) and (max-width: 450px) {
-    .footer {
-      position: relative;
-      margin-top: 30px;
-    }
-  }
+}
 </style>

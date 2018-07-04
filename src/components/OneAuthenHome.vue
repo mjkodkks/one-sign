@@ -12,7 +12,7 @@
               </b-form-input>
             </b-form-group>
             <b-form-group id="InputGroup1" label="Password :" label-for="Input2" class="label-head">
-              <b-form-input id="Input2" type="password" v-model="form.user_password" required placeholder="Enter your password">
+              <b-form-input id="Input2" class="text_focus" type="password" v-model="form.user_password" required placeholder="Enter your password">
               </b-form-input>
             </b-form-group>
             <b-button type="submit" class="submit-btn">
@@ -62,13 +62,16 @@ export default {
       animate_alert: 'animated bounce'
     }
   },
-  mounted () {
+  beforeMount () {
     console.log(this.$store.state.isLogin)
+    this.$Progress.start()
+
   },
   methods: {
     onSubmit (evt) {
       evt.preventDefault()
       this.load = true
+      this.$Progress.start()
 
       axios
         .post('https://testoneid.inet.co.th/api/oauth/getpwd', {
@@ -100,17 +103,20 @@ export default {
               this.$store.state.isLogin = true
               this.$store.state.user = user
               this.load = false
+              this.$Progress.finish()
               this.$router.push('/upload')
               console.log(this.user_data)
             })
             .catch(error => {
               this.load = false
+              this.$Progress.finish()
               console.log(error)
             })
         })
         .catch(error => {
           console.log(error)
           this.load = false
+          this.$Progress.finish()
           this.showAlert()
         })
     },
@@ -120,6 +126,9 @@ export default {
     showAlert () {
       this.dismissCountDown = this.dismissSecs
     }
+  },
+  mounted () {
+    this.$Progress.finish()
   }
 }
 </script>
@@ -194,11 +203,6 @@ form {
 .form-control:focus {
   border-color: #198f00;
   box-shadow: 0 0 0 0.2rem rgb(231, 239, 229);
-}
-
-label {
-  color: #000;
-  font-size: 1.3rem;
 }
 
 .register-btn {
@@ -321,3 +325,11 @@ label {
   }
 }
 </style>
+
+<style>
+.form-control:hover label {
+  color: #fff
+}
+</style>
+
+

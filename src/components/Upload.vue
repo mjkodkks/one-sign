@@ -29,7 +29,7 @@ export default {
       this.$router.push('/login')
     }
     const user = JSON.parse(localStorage.getItem('user'))
-
+    this.$Progress.start()
     this.user_id = user.user_id
     console.log(user)
   },
@@ -39,6 +39,9 @@ export default {
       this.$router.push('/login')
       window.localStorage.removeItem('user')
     }
+  },
+  updated () {
+    this.$Progress.finish()
   }
 }
 </script>

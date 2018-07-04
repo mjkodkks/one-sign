@@ -4,7 +4,7 @@
       <span>ยินดีต้อนรับ คุณ <span class="login-user">{{user_id}}</span> ,</span><a class="logOut" @click="logOut()" >LogOut</a>
       </div>
     <div class="row justify-content-center">
-      <div class="card-box">
+      <div class="card-box animated fadeIn">
         <div>
           <b-form-file v-model="file" :state="Boolean(file)" accept=".pdf" placeholder="Choose a file..."></b-form-file>
           <div class="mt-3">Selected file: {{file && file.name}}</div>

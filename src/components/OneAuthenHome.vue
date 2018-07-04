@@ -6,7 +6,7 @@
       </b-alert>
       <b-form @submit="onSubmit">
         <div v-bind:class="[dismissCountDown ? animate_alert:'']">
-          <div class="card-box">
+          <div class="card-box animated fadeIn">
             <b-form-group id="InputGroup1" label="OneID :" label-for="Input1" class="label-head">
               <b-form-input id="Input1" type="text" v-model="form.user_name" required placeholder="Enter your OneID">
               </b-form-input>

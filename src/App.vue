@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <img class="logo" src="./assets/logo_OneAuthen_500px.png" width="200px">
+    <img class="logo animated fadeIn" src="./assets/logo_OneAuthen_500px.png" width="200px">
     <router-view/>
     <Footer />
   </div>
